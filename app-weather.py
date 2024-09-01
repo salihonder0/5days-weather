@@ -16,7 +16,7 @@ def format_weather_data(data):
     forecast_weather = data["list"][1:]
 
     current_weather_summary = {
-        "temperature": current_weather["main"]["temp"],
+        "temperature": current_weather["main"]["temp"] / 10 ,
         "humidity": current_weather["main"]["humidity"],
         "description": current_weather["weather"][0]["description"],
         "icon": current_weather["weather"][0]["icon"],
@@ -26,7 +26,7 @@ def format_weather_data(data):
     for day in forecast_weather:
         forecast_weather_summary.append({
             "date": day["dt_txt"],
-            "temperature": day["main"]["temp"],
+            "temperature": round(current_weather["main"]["temp"] / 10 , 2),
             "humidity": day["main"]["humidity"],
             "description": day["weather"][0]["description"],
             "icon": day["weather"][0]["icon"],
