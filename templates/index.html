@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <h1>Weather Forecast for {{ location }}</h1>
+
+    <form method="POST" action="/">
+        <label for="location">Enter Location: </label>
+        <input type="text" name="location" id="location" value="{{ location }}" placeholder="E.g., New York">
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <div class="current-weather">
+        <h2>Current Weather</h2>
+        <img src="https://openweathermap.org/img/wn/{{ current_weather.icon }}.png" alt="{{ current_weather.description }}">
+        <p>{{ current_weather.temperature }}°C</p>
+        <p>{{ current_weather.humidity }}% humidity</p>
+        <p>{{ current_weather.description }}</p>
+    </div>
+
+    <div class="forecast-weather">
+        <h2>Forecast Weather</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Temperature (°C)</th>
+                    <th>Humidity (%)</th>
+                    <th>Description</th>
+                    <th>Icon</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for day in forecast_weather %}
+                    <tr>
+                        <td>{{ day.date }}</td>
+                        <td>{{ day.temperature }}</td>
+                        <td>{{ day.humidity }}</td>
+                        <td>{{ day.description }}</td>
+                        <td><img src="https://openweathermap.org/img/wn/{{ day.icon }}.png" alt="{{ day.description }}"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
