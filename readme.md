@@ -30,7 +30,7 @@ This is a Flask-based web application that allows users to select a city and ret
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/weather-data-fetcher.git
+    git clone https://github.com/salihonder0/weather-data-fetcher.git
     cd weather-data-fetcher
     ```
 
